@@ -1,0 +1,34 @@
+App pulls weather info for current location and displays it using semantic-ui Cards.
+
+##bug
+Semantic-ui-react causes webpack to fail compiling:
+- tried a recently released patch for this issue + postinstall script. Did not work.
+- identical issue has been found due to an extra semi-colon in semantic-ui-react/semantic.min.css. Removed semi-colon,
+     did not fix issue.
+##fixed
+- re-installed semantic-ui, removed the semi-colons (one also in semantic-ui-react/semantic.css), and added the patch
+    + postinstall script.
+##takeaway
+- semantic-ui-react seems under-maintained. For my next project, I will try a different css framework.
+
+
+First display setup in weather.js was done using a generic Card. I removed that default card and replaced it with more
+    more standard html/css. Used a tutorial to guide the layout and colour scheme for the app.
+
+Added a reload button to the app. As of now, it only displays current weather.
+In the free tier of openweathermap.org, a 3-day forecast is also available, so I will add that feature next.
+
+After some messing around with having to exclude Bad Requests, I've created a promiseAll that performs both fetches on 
+load. Parsing the passed array is relatively simple; the next steps will be:
+- create a card below the current weather card to display the forecast
+- set up moment-timezone to automatically adjust from GMT
+- once able to display the information, then I will make determinations about exactly how extensive I can manage the
+    forecast to be. openweathermap offers three hour forecasts for 5 days ahead, but I will likely not incorporate
+    all of that into the app.
+
+Have gotten to where I'm pulling and displaying all the data that I will want to. Spent some time exploring React hooks,
+and some ways to convert the raw data into something more digestible (e.g. converting wind degrees into compass direction).
+Next up, I want to make the forecast code more concise and programmatic; and I have to decide on a way to display it
+that is easy to understand and intuitive to use.
+
+I've decided to set up a function that runs on load and creates a table of the 5-day forecast.
