@@ -28,6 +28,7 @@
 
 .forecast {
   width: 700px;
+  height: 50vh;
   border-radius: 0 0 15px 15px;
   background-color: #01579b;
   overflow-x: scroll;
