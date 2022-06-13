@@ -33,3 +33,6 @@ that is easy to understand and intuitive to use.
 
 I've decided to set up a function that runs on load and creates a table of the 5-day forecast. A table proved to be
 a little too restrictive, so I will instead have it create descending paragraphs of the same dimensions.
+
+New forecastDiv in useForecast generating, but only filling in the last flex div with data (from weatherData[1].list[36]).
+For loop runs correctly, but it appends empty divs up up until the final loop.

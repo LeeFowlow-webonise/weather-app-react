@@ -1,5 +1,3 @@
-import CurrentWeatherCard from '../components/weather';
-
 let newDate = document.createElement('p');
 let newTemp = document.createElement('p');
 let newCond = document.createElement('p');
@@ -19,30 +17,33 @@ const converter = (degrees) => {
 
 const useForecast = (weatherData) => {
     let i;
-    const forecastDiv = CurrentWeatherCard.getElementById('forecast');
+    let forecastDiv = document.createElement('div');
     let newP = document.createElement('p');
     newP.setAttribute('className', 'foreday');
 
     for (i = 0; i < weatherData.length; i++){
-        if (i % 4 !== 0){
-            return
-        } else {
+        if (i % 4 === 0){
             let forecastData = weatherData[i];
             //console.log(forecastData.wind);
             let newD = document.createElement('div');            
-            newD.setAttribute('className', 'flex');            
-            // let [newDate, newTemp, newCond, newWind] = Array(4).fill(newP);
+            newD.setAttribute('className' + i, 'flex');            
             newDate.innerHTML = `{Date(${forecastData.dt * 1000}).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}`;
             newTemp.innerHTML = `{${forecastData.main.temp}} &deg;C`;
             newCond.innerHTML = `{${forecastData.weather[0].description}}`;
             newWind.innerHTML = `{${Math.round(10 * forecastData.wind.speed) / 10}km/hr <span>{${converter(forecastData.wind.deg)}}`;
             
-            newD.appendChild(newDate);
-            newD.appendChild(newTemp);
-            newD.appendChild(newCond);
-            newD.appendChild(newWind);
-            console.log(forecastDiv);
-            //forecastDiv.appendChild(newD);
+            newD.append(newDate);
+            newD.append(newTemp);
+            newD.append(newCond);
+            newD.append(newWind);
+            forecastDiv.append(newD);
+
+            //currently set to trigger before i passes the last divisible by 4 element number
+            if (i >= weatherData.length - 4){
+                //console.log(i);
+                console.log(forecastDiv);
+                //return forecastDiv;
+            }
         }
     }
 }
