@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import { Button } from 'semantic-ui-react';
 import moment from 'moment';
-import useWindDirection from '../hooks/useWindDirection';
+import useForecast from '../hooks/useForecast';
 
 const refresh = () => {
   window.location.reload();
@@ -29,7 +29,7 @@ const CurrentWeatherCard = ({weatherData}) => (
         <p className='sunrise-sunset'>Sunset: {new Date(weatherData[0].sys.sunset * 1000).toLocaleTimeString('en-IN')}</p>
       </div>
     </div>
-    <div className='forecast'>
+    <div className='forecast' id='forecast'>
       <div className='forecasttop'>
         <div className='header'>5-day Forecast</div>
       </div>
@@ -40,8 +40,10 @@ const CurrentWeatherCard = ({weatherData}) => (
             <p className='foreday'>Wind(km/hr)</p>
       </div>
       <div className='flex'>
-        <p className='foreday'>{new Date(weatherData[1].list[0].dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}<br></br><br></br>
-          {weatherData[1].list[0].main.temp} &deg;C<br></br><br></br>
+        <p className='flex' id='foredisplay'>{useForecast(weatherData[1].list)}</p>
+      </div>
+        {/* <p className='foreday'>{new Date(weatherData[1].list[0].dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}<br></br><br></br>
+          { {weatherData[1].list[0].main.temp} &deg;C<br></br><br></br>
           {weatherData[1].list[0].weather[0].description}<br></br><br></br>
           {Math.round(10 * weatherData[1].list[0].wind.speed) / 10}km/hr <span>{useWindDirection(weatherData[1].list[0].wind.deg)}</span></p>
         <p className='foreday'>{new Date(weatherData[1].list[4].dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}<br></br><br></br>
@@ -79,8 +81,7 @@ const CurrentWeatherCard = ({weatherData}) => (
         <p className='foreday'>{new Date(weatherData[1].list[36].dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}<br></br><br></br>
           {weatherData[1].list[36].main.temp} &deg;C<br></br><br></br>
           {weatherData[1].list[36].weather[0].description}<br></br><br></br>
-          {Math.round(10 * weatherData[1].list[36].wind.speed) / 10}km/hr <span>{useWindDirection(weatherData[1].list[0].wind.deg)}</span></p>
-      </div>
+          {Math.round(10 * weatherData[1].list[36].wind.speed) / 10}km/hr <span>{useWindDirection(weatherData[1].list[0].wind.deg)}</span></p>} */}
       <div className='flex'></div>
       <div className='flex'></div>
     </div>

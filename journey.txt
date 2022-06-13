@@ -31,4 +31,5 @@ and some ways to convert the raw data into something more digestible (e.g. conve
 Next up, I want to make the forecast code more concise and programmatic; and I have to decide on a way to display it
 that is easy to understand and intuitive to use.
 
-I've decided to set up a function that runs on load and creates a table of the 5-day forecast.
+I've decided to set up a function that runs on load and creates a table of the 5-day forecast. A table proved to be
+a little too restrictive, so I will instead have it create descending paragraphs of the same dimensions.
