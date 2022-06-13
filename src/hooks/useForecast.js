@@ -1,5 +1,3 @@
-import React from 'react';
-
 const converter = (degrees) => {
     const directions = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest']
 

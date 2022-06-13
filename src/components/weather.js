@@ -2,7 +2,8 @@ import React from 'react';
 import '../App.css';
 import { Button } from 'semantic-ui-react';
 import moment from 'moment';
-import useForecast from '../hooks/useForecast';
+import useWindDirection from '../hooks/useWindDirection';
+
 
 const refresh = () => {
   window.location.reload();
@@ -39,11 +40,10 @@ const CurrentWeatherCard = ({weatherData}) => (
             <p className='foreday'>Condition</p>
             <p className='foreday'>Wind(km/hr)</p>
       </div>
-      <div className='flex'>
-        <p className='flex' id='foredisplay'>{useForecast(weatherData[1].list)}</p>
+      <div className='flex' id='foredisplay'>
       </div>
-        {/* <p className='foreday'>{new Date(weatherData[1].list[0].dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}<br></br><br></br>
-          { {weatherData[1].list[0].main.temp} &deg;C<br></br><br></br>
+        <p className='foreday'>{new Date(weatherData[1].list[0].dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}<br></br><br></br>
+          {weatherData[1].list[0].main.temp} &deg;C<br></br><br></br>
           {weatherData[1].list[0].weather[0].description}<br></br><br></br>
           {Math.round(10 * weatherData[1].list[0].wind.speed) / 10}km/hr <span>{useWindDirection(weatherData[1].list[0].wind.deg)}</span></p>
         <p className='foreday'>{new Date(weatherData[1].list[4].dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}<br></br><br></br>
@@ -81,7 +81,7 @@ const CurrentWeatherCard = ({weatherData}) => (
         <p className='foreday'>{new Date(weatherData[1].list[36].dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}<br></br><br></br>
           {weatherData[1].list[36].main.temp} &deg;C<br></br><br></br>
           {weatherData[1].list[36].weather[0].description}<br></br><br></br>
-          {Math.round(10 * weatherData[1].list[36].wind.speed) / 10}km/hr <span>{useWindDirection(weatherData[1].list[0].wind.deg)}</span></p>} */}
+          {Math.round(10 * weatherData[1].list[36].wind.speed) / 10}km/hr <span>{useWindDirection(weatherData[1].list[0].wind.deg)}</span></p>
       <div className='flex'></div>
       <div className='flex'></div>
     </div>

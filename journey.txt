@@ -35,4 +35,9 @@ I've decided to set up a function that runs on load and creates a table of the 5
 a little too restrictive, so I will instead have it create descending paragraphs of the same dimensions.
 
 New forecastDiv in useForecast generating, but only filling in the last flex div with data (from weatherData[1].list[36]).
-For loop runs correctly, but it appends empty divs up up until the final loop.
+For loop runs correctly, but it appends empty divs up up until the final loop. 
+##Error fixed; I needed to call a new instance
+of each element during each iteration.
+
+Next step is to learn how to properly apply ReactDOM.render() to display the forecast data in the foredisplay div of
+index.html.
