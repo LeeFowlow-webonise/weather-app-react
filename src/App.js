@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from "react";
-import ReactDOM from 'react';
+//import ReactDOM from 'react';
 import Weather from './components/weather';
 import Forecast from './components/forecast';
 let weatherData = [];
@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      {(typeof data[1] != 'undefined') ? (
+      {(typeof data[1] !== 'undefined') ? (
         <div><Weather weatherData={data}/>
         <Forecast weatherData={data}/></div>
       ): (

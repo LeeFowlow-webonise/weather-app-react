@@ -1,4 +1,4 @@
-##Dates begin to be included on June 14th
+##I BEGIN INCLUDING DATES ON JUNE 14th (LINE 48)
 
 App pulls weather info for current location and displays it using semantic-ui Cards.
 
@@ -53,3 +53,11 @@ I'll design a function that takes the first reading after noon on a particular d
 
 First thing today though, after setting the basis for the above feature will be to figure out how to best get
 the useForecast hook to render in HTML.
+
+Did a simple tutorial at https://reactjs.org/tutorial/tutorial.html to see what fundamental mistakes I
+was making.
+- return statement frequently needs to be opened into multiple lines w/ parentheses, or Javascript wants to add a
+    semi-colon and break it.
+- using React.createElement in useForecast should be a better approach to my previous attempts.
+
+Five-day forecast renders dynamically, but with parsing errors. Progress!
