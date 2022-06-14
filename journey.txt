@@ -1,3 +1,5 @@
+##Dates begin to be included on June 14th
+
 App pulls weather info for current location and displays it using semantic-ui Cards.
 
 ##bug
@@ -41,3 +43,13 @@ of each element during each iteration.
 
 Next step is to learn how to properly apply ReactDOM.render() to display the forecast data in the foredisplay div of
 index.html.
+
+
+##JUNE 14th (Dates to be included from here on out)
+Checked some recommended tasks related to weatherapps, and one which I have not implemented is to have a selector that
+allows the user to check the weather for a specific day of the week. The free tier of openweather.org only goes four 
+days ahead, so I will have to take that into consideration. It doesn't supply me with an exact daily forecast, so
+I'll design a function that takes the first reading after noon on a particular day and returns that.
+
+First thing today though, after setting the basis for the above feature will be to figure out how to best get
+the useForecast hook to render in HTML.
