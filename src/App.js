@@ -1,9 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from "react";
-//import ReactDOM from 'react';
-import Weather from './components/weather';
-import Forecast from './components/forecast';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+// import Home from './components/weather';
+// import Hourly from './components/forecast';
+import Weather from './components/weatherTest';
+import Hourly from './components/forecastTest';
+import Test from './components/test';
 let weatherData = [];
 
 function App() {
@@ -51,16 +59,36 @@ function App() {
       fetchData();
     }, [lat, long])
 
-  return (
-    <div className="App">
-      {(typeof data[1] !== 'undefined') ? (
-        <div><Weather weatherData={data}/>
-        <Forecast weatherData={data}/></div>
-      ): (
-        <div>
-       </div>
-      )}
-    </div>
+    return (
+      <Router>
+          <div>
+            <h2>Testing out Routers!</h2>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <ul className="navbar-nav mr-auto">
+              <li><Link to={'/'} className="nav-link"> Current Weather </Link></li>
+              <li><Link to={'/forecast/hourly'} className="nav-link">Hourly Forecast</Link></li>
+              <li><Link to={'/test'} className="nav-link">Test</Link></li>
+            </ul>
+            </nav>
+            <hr />
+            <Routes>
+                <Route exact path='/' element={Weather} />
+                <Route path='/forecast/hourly' element={Hourly} />
+                <Route path='/test' element={Test} />
+            </Routes>
+          </div>
+        </Router>
+
+
+    // <div className="App">
+    //   {(typeof data[1] !== 'undefined') ? (
+    //     <div><Weather weatherData={data}/>
+    //     <Forecast weatherData={data}/></div>
+    //   ): (
+    //     <div>
+    //    </div>
+    //   )}
+    // </div>
   );
 }
 
