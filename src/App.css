@@ -70,6 +70,10 @@
   height: 35px;
 }
 
+.linkButton{
+  width: 8vw;
+}
+
 .day {
   padding: 15px;
   color: whitesmoke;
