@@ -11,22 +11,20 @@ const converter = (degrees) => {
 const useForecast = (weatherData) => {
     let i;
     let forecastDiv = [];
-    // let newP = document.createElement('p');
-    // newP.setAttribute('className', 'foreday');
 
     for (i = 0; i < weatherData.length; i++){
         if (i % 4 === 0){
             let forecastData = weatherData[i];
-            //the new div to be added this loop
+            //the new paragraphs to be added to next flex div
             let newDate = React.createElement(
                 'p', 
                 {className: 'foreday'},
-                Date(forecastData.dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})
+                new Date(forecastData.dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})
                 );
             let newTemp = React.createElement(
                 'p', 
                 {className: 'foreday'},
-                forecastData.main.temp +  '&deg;C'
+                forecastData.main.temp + '°C'
                 );
             let newCond = React.createElement(
                 'p', 
@@ -36,15 +34,14 @@ const useForecast = (weatherData) => {
             let newWind = React.createElement(
                 'p', 
                 {className: 'foreday'},
-                Math.round(10 * forecastData.wind.speed) / 10 + 'km/hr <span>' + converter(forecastData.wind.deg)
+                Math.round(10 * forecastData.wind.speed) / 10 + 'km/h'
                 );
-            //the new paragraphs to be inserted into that div
+            let newDirect = React.createElement(
+                'p', 
+                {className: 'foreday'},
+                converter(forecastData.wind.deg)
+                );        
  
-            //the content to be displayed in those paragraphs
-            // newDate.innerHTML = Date(forecastData.dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'});
-            // newTemp.innerHTML = forecastData.main.temp +  '&deg;C';
-            // newCond.innerHTML = forecastData.weather[0].description;
-            // newWind.innerHTML = Math.round(10 * forecastData.wind.speed) / 10 + 'km/hr <span>' + converter(forecastData.wind.deg);
             
             let newD = React.createElement(
                 'div', 
@@ -52,9 +49,9 @@ const useForecast = (weatherData) => {
                 newDate,
                 newTemp,
                 newCond,
-                newWind
+                newWind,
+                newDirect
                 );
-            //newD.append(newDate, newTemp, newCond, newWind);
             forecastDiv.push(newD);
 
             //currently set to trigger before i passes the last divisible by 4 element index number

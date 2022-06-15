@@ -15,9 +15,10 @@ const ForecastCard = ({weatherData}) => {
             </div>
             <div className='flex'>
                 <p className='foreday'>Date/Time</p>
-                <p className='foreday'>Temp&deg;C</p>
+                <p className='foreday'>Temp</p>
                 <p className='foreday'>Condition</p>
-                <p className='foreday'>Wind(km/hr)</p>
+                <p className='foreday'>Wind</p>
+                <p className='foreday'>Wind Direction</p>
             </div>
             {useForecast(weatherData[1].list)}            
         </div>
@@ -34,7 +35,7 @@ const ForecastCard = ({weatherData}) => {
     //     </div>
     //     <div className='flex'>
     //         <p className='foreday'>{new Date(weatherData[1].list[4].dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})}</p>
-    //         <p className='foreday'>{weatherData[1].list[4].main.temp} &deg;C</p>
+            // <p className='foreday'>{weatherData[1].list[4].main.temp} &deg;C</p>
     //         <p className='foreday'>{weatherData[1].list[4].weather[0].description}</p>
     //         <p className='foreday'>{Math.round(10 * weatherData[1].list[4].wind.speed) / 10}km/hr <span>{useWindDirection(weatherData[1].list[0].wind.deg)}</span></p>
     //     </div>

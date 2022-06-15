@@ -61,3 +61,8 @@ was making.
 - using React.createElement in useForecast should be a better approach to my previous attempts.
 
 Five-day forecast renders dynamically, but with parsing errors. Progress!
+Parsing errors fixed. 
+Before trying my idea from this morning, I'm going to work on the design.
+- make date/time section more concise
+- use weather icons in place of condition descriptor
+- align columns uniformly
