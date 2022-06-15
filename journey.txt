@@ -66,3 +66,7 @@ Before trying my idea from this morning, I'm going to work on the design.
 - make date/time section more concise
 - use weather icons in place of condition descriptor
 - align columns uniformly
+
+##JUNE 15th
+After looking at the widgets offered in openweathermap's free tier, I've decided to add on to incorporate one into the
+app. I'll add a button to the forecast div which creates a popup of the weekly forecast widget for the user's city.
