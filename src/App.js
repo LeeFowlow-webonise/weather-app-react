@@ -72,9 +72,9 @@ function App() {
             </nav>
             <hr />
             <Routes>
-                <Route exact path='/' element={Weather} />
-                <Route path='/forecast/hourly' element={Hourly} />
-                <Route path='/test' element={Test} />
+                <Route exact path='/' element={<Weather/>} />
+                <Route path='/forecast/hourly' element={<Hourly/>} />
+                <Route path='/test' element={<Test/>} />
             </Routes>
           </div>
         </Router>

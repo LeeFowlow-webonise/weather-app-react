@@ -8,6 +8,8 @@ const refresh = () => {
   }
 
 const CurrentWeather = (weatherData) => {
+        
+    const currentWeatherDiv = (weatherData) => {
         return (
             <div className='container'>
                 <div className='main'>
@@ -30,6 +32,10 @@ const CurrentWeather = (weatherData) => {
                 </div>
             </div>
         )
+    }
+    return {
+        currentWeatherDiv
+    }
 }
 
 export default CurrentWeather;

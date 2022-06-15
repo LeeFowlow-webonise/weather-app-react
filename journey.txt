@@ -73,4 +73,8 @@ app. I've installed React router, and am going to have it display a different pa
 the user would like to see.
 
 Followed through React router tutorial at https://www.codingame.com/playgrounds/6517/react-router-tutoria, except using
-functional compnents.
+functional components.
+
+After setting up my router and connecting my components, I ran into the error that I was trying to return a function as
+a component. Changing " element={COMPONENT NAME} " to " element={<COMPONENT NAME/>} " turned out to be all that was
+required for App.js to recognize it as a component.
