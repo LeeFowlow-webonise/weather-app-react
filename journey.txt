@@ -103,3 +103,7 @@ input level, so I've commented out most of the hook and am working to get a basi
 ##solved
 I had left a snippet of the copied URL uncommented at the bottom of useWidget, causing it to run
     prematurely.
+
+Wasn't able to get a script to dynamically render in the html. So for the time being, it is set so
+that the div it appears in gets toggled as display none or inline, depending on the timing. This
+is temporary.

@@ -13,11 +13,22 @@ import Weather from './components/weather';
 import Hourly from './components/forecast';
 import Test from './components/test';
 let weatherData = [];
-// let someVar;
 
-// const functionTest = async () => {
-//   let someVar = 'here'
-// }
+const displayWidget = () => {
+  let widgetDiv = document.getElementById('useWidget-11');
+  
+  if (widgetDiv.style.display == 'none'){
+    widgetDiv.style.display = 'inline'
+  }
+}
+
+const hideWidget = () => {
+  let widgetDiv = document.getElementById('useWidget-11');
+  
+  if (widgetDiv.style.display == 'inline'){
+    widgetDiv.style.display = 'none'
+  }
+}
 
 function App() {
   const [lat, setLat] = useState([]);
@@ -70,9 +81,9 @@ function App() {
               <h2>Testing out Routers!</h2>
               <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <ul className="navbar-nav mr-auto">
-                <li><Link to={'/'} className="nav-link"> Current Weather </Link></li>
-                <li><Link to={'/forecast/hourly'} className="nav-link">Hourly Forecast</Link></li>
-                <li><Link to={'/test'} className="nav-link">Test</Link></li>
+                <li><Link to={'/'} className="nav-link" onClick={hideWidget}> Current Weather </Link></li>
+                <li><Link to={'/forecast/hourly'} className="nav-link" onClick={hideWidget}>Hourly Forecast</Link></li>
+                <li><Link to={'/test'} className="nav-link" onClick={displayWidget}>Test</Link></li>
               </ul>
               </nav>
               <hr />

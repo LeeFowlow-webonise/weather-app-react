@@ -13,51 +13,61 @@ import React from 'react';
 
 const useWidget = (cityId) => {
 
-    let widgetParamObj = {
-        id: 11,
-        cityid: cityId,
-        appid: process.env.REACT_APP_API_KEY,
-        units: 'metric',
-        containerid: 'useWidget-11'
-    };
+    //could only get widgetParamObj and widgetFunction to work by coding them directly into callScript
 
-    let widgetFunction = () => {
-        var script = document.createElement('script');
-        script.async = true;
-        script.charset = "utf-8";
-        script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-        // var script = React.createElement(
-        //     'script',
-        //     {async: 'true', charset: 'utf-8',
-        //     src: "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js"});
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(script, s);
-    };
+    // let widgetParamObj = {
+    //     id: 11,
+    //     cityid: cityId,
+    //     appid: process.env.REACT_APP_API_KEY,
+    //     units: 'metric',
+    //     containerid: 'useWidget-11'
+    // };
 
-    let mainScript = React.createElement(
-        'script',
-        {src: '//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'}
-    );
+    // let widgetFunction = () => {
+    //     var script = document.createElement('script');
+    //     script.async = true;
+    //     script.charset = "utf-8";
+    //     script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+    //     // var script = React.createElement(
+    //     //     'script',
+    //     //     {async: 'true', charset: 'utf-8',
+    //     //     src: "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js"});
+    //     var s = document.getElementsByTagName('script')[0];
+    //     console.log(s);
+    //     s.parentNode.insertBefore(script, s);
+    // };
 
-    let callScript = React.createElement(
-        'script',
-        null,
-        `window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
-        window.myWidgetParam.push(id: 11, cityid: '${cityId}', appid: '${process.env.REACT_APP_API_KEY}',
-            units: 'metric', containerid: 'useWidget-11'});(${widgetFunction()})
-        )();</script>`
+    // let mainScript = React.createElement(
+    //     'script',
+    //     {src: '//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js', key: 'main'}
+    // );
 
-    );
+    // let callScript = React.createElement(
+    //     'script',
+    //     {key: 'call'},
+    //     `window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
+    //      window.myWidgetParam.push(id: 11, cityid: '${cityId}', appid: '${process.env.REACT_APP_API_KEY}',
+    //         units: 'metric', containerid: 'useWidget-11'});
+    //     (function() {var script = document.createElement('script');script.async = true;
+    //         script.charset = "utf-8";
+    //         script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+    //         var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  }
+    //         )
+    //     )();`
+
+    // );
+
+    let callScript = `window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
+        window.myWidgetParam.push({id: 11,cityid: '${cityId}',appid: '${process.env.REACT_APP_API_KEY}',
+        units: 'metric',containerid: 'root',  });  
+        (function() {var script = document.createElement('script');script.async = true;
+        script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+        var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();`
+
+    // let widgetScripts = [mainScript, callScript];
 
     return(
-        console.log([
-            {'wPO': widgetParamObj},//correct
-            {'main': mainScript},//correct
-            {'call': callScript},//widgetParamObj getting read as object Object
-            {'func': widgetFunction}
-        ])
-        // mainScript,
-        // callScript
+        callScript
     )
 }
 

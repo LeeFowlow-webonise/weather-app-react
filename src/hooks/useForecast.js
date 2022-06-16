@@ -18,34 +18,34 @@ const useForecast = (weatherData) => {
             //the new paragraphs to be added to next flex div
             let newDate = React.createElement(
                 'p', 
-                {className: 'foreday'},
+                {className: 'foreday', key: 'newDate'},
                 new Date(forecastData.dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})
                 );
             let newTemp = React.createElement(
                 'p', 
-                {className: 'foreday'},
+                {className: 'foreday', key: 'newTemp'},
                 forecastData.main.temp + '°C'
                 );
             let newCond = React.createElement(
                 'p', 
-                {className: 'foreday'},
+                {className: 'foreday', key: 'newCond'},
                 forecastData.weather[0].description
                 );
             let newWind = React.createElement(
                 'p', 
-                {className: 'foreday'},
+                {className: 'foreday', key: 'newWind'},
                 Math.round(10 * forecastData.wind.speed) / 10 + 'km/h'
                 );
             let newDirect = React.createElement(
                 'p', 
-                {className: 'foreday'},
+                {className: 'foreday', key: 'newDirect'},
                 converter(forecastData.wind.deg)
                 );        
  
             
             let newD = React.createElement(
                 'div', 
-                {className: 'flex'},
+                {className: 'flex', key: 'newD' + i},
                 newDate,
                 newTemp,
                 newCond,
