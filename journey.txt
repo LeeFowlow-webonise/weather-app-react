@@ -92,3 +92,8 @@ npm install and npm audit return 6 high severity vulnerabilities all linked to r
 
 ##JUNE 16th
 Routers are set up now, but they are not passing data to the Components. This is where I'll start today.
+I've found this example which I will work from: https://github.com/taxigy/til/blob/master/redux/react-router-action-on-enter.md
+
+weatherData now gets passed correctly to the current weather Component as an object, 
+then parsed and displayed as desired. Next step is to set up the twice a day forecast to do the same,
+and then add the weekly widget from openweathermap as another route.

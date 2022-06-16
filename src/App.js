@@ -9,13 +9,17 @@ import {
 } from "react-router-dom";
 // import Home from './components/weather';
 // import Hourly from './components/forecast';
-import Weather from './components/weatherTest';
-import Hourly from './components/forecastTest';
+import Weather from './components/weather';
+import Hourly from './components/forecast';
 import Test from './components/test';
 let weatherData = [];
+// let someVar;
+
+// const functionTest = async () => {
+//   let someVar = 'here'
+// }
 
 function App() {
-
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
   const [data, setData] = useState([]);
@@ -59,7 +63,7 @@ function App() {
       fetchData();
     }, [lat, long])
 
-    return (
+    return data ? (
         <Router>
           {(typeof data[1] !== 'undefined') ? (
             <div>
@@ -73,8 +77,8 @@ function App() {
               </nav>
               <hr />
               <Routes>
-                  <Route exact path='/' element={<Weather weatherData={data}/>} />
-                  <Route path='/forecast/hourly' element={<Hourly weatherData={data}/>} />
+                  <Route exact path='/' element={<Weather weatherData={data}/>}/>
+                  <Route path='/forecast/hourly' element={<Hourly weatherData={data}/>}/>
                   <Route path='/test' element={<Test/>} />
               </Routes>
             </div>
@@ -83,8 +87,9 @@ function App() {
              </div>
             )}
           </Router>      
-    );
-          
+    ): (
+      <div></div>
+    )
 
 
     // <div className="App">

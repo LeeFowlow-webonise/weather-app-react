@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Test = () => {
-    return ('test');
+    return('tested')
 }
 
 export default Test;
