@@ -7,7 +7,7 @@ const Forecast = (weatherData) => {
 
     return (
         <div className='forecast' id='forecast'>
-            <div className='forecasttop'>
+            <div className='top'>
                 <div className='header'>Forecasts</div>
             </div>
             <div className='flex'>            

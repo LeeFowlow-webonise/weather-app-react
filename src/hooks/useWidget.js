@@ -12,6 +12,7 @@ import React from 'react';
  //     var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
 
 const useWidget = (cityId) => {
+
     let widgetParamObj = {
         id: 11,
         cityid: cityId,
@@ -44,14 +45,14 @@ const useWidget = (cityId) => {
     );
 
     return(
-        console.log([
-            {'wPO': widgetParamObj},
-            {'main': mainScript},
-            {'call': callScript},
-            {'func': widgetFunction}
-        ])
-        // mainScript,
-        // callScript
+        // console.log([
+        //     {'wPO': widgetParamObj},
+        //     {'main': mainScript},
+        //     {'call': callScript},
+        //     {'func': widgetFunction}
+        // ])
+        mainScript,
+        callScript
     )
 }
 
