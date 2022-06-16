@@ -1,3 +1,7 @@
+
+//NOT IMPLEMENTED - Star of a detailed three day forecast
+
+
 import moment from 'moment';
 
 //this will be the basis for displaying forecasts for specific days three days ahead

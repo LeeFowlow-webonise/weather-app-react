@@ -79,7 +79,7 @@ function App() {
               <Routes>
                   <Route exact path='/' element={<Weather weatherData={data}/>}/>
                   <Route path='/forecast/hourly' element={<Hourly weatherData={data}/>}/>
-                  <Route path='/test' element={<Test/>} />
+                  <Route path='/test' element={<Test weatherData={data}/>} />
               </Routes>
             </div>
             ): (

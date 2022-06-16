@@ -1,7 +1,17 @@
 import React from 'react';
+import '../App.css';
+import useWidget from '../hooks/useWidget';
 
-const Test = () => {
-    return('tested')
+const Test = (weatherData) => {
+    const widgetURL = useWidget(weatherData.weatherData[0].id);
+
+    return( 
+        widgetURL
+        //console.log(widgetURL)
+        // <div id='useWidget-11'>
+        //     {widgetURL}
+        // </div>
+    )
 }
 
 export default Test;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const converter = (degrees) => {
     const directions = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest']
@@ -56,7 +56,6 @@ const useForecast = (weatherData) => {
 
             //currently set to trigger before i passes the last divisible by 4 element index number
             if (i >= weatherData.length - 4){
-                console.log(forecastDiv);
                 return forecastDiv;
             }
         }

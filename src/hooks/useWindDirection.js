@@ -1,3 +1,5 @@
+//not currently called anywhere, but a useful tool that I've left as a hook.
+
 const useWindDirection = (degrees) => {
     const directions = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest']
 
