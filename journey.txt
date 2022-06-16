@@ -78,3 +78,16 @@ functional components.
 After setting up my router and connecting my components, I ran into the error that I was trying to return a function as
 a component. Changing " element={COMPONENT NAME} " to " element={<COMPONENT NAME/>} " turned out to be all that was
 required for App.js to recognize it as a component.
+
+Received work computer today. Set it up and downloaded all necessary programs before pulling this code.
+##bug
+npm install and npm audit return 6 high severity vulnerabilities all linked to react-scripts. Proof of
+    this being that moving react-scripts to "devDependencies" and running 'npm audit --production' returns
+    0 vulnerabilities.
+- uninstalling/installing react-scripts doesn't solve the problem.
+- npm audit fix --force would create a breaking change (by installing a much older version of react-scripts)
+- The issue is the same as documented here: https://github.com/facebook/create-react-app/issues/11174
+    It appears that this isn't actually an issue that needs fixing, but is a byproduct of 'npm audit'
+    interacting with create-react-app.
+
+##JUNE 16th
