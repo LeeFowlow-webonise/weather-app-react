@@ -97,3 +97,9 @@ I've found this example which I will work from: https://github.com/taxigy/til/bl
 weatherData now gets passed correctly to the current weather Component as an object, 
 then parsed and displayed as desired. Next step is to set up the twice a day forecast to do the same,
 and then add the weekly widget from openweathermap as another route.
+
+useWidget hook isn't putting together the scripts correctly. console.logs show that it starts at the 
+input level, so I've commented out most of the hook and am working to get a basic starting point.
+##solved
+I had left a snippet of the copied URL uncommented at the bottom of useWidget, causing it to run
+    prematurely.
