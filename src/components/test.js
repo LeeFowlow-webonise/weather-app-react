@@ -6,7 +6,7 @@ const Test = (weatherData) => {
     const widgetURL = useWidget(weatherData.weatherData[0].id);
 
     return( 
-        console.log(widgetURL)
+        'testing'
         //console.log(widgetURL)
         // <div id='useWidget-11'>
         //     {widgetURL}

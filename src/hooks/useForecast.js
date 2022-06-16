@@ -56,7 +56,7 @@ const useForecast = (weatherData) => {
 
             //currently set to trigger before i passes the last divisible by 4 element index number
             if (i >= weatherData.length - 4){
-                return forecastDiv;
+                return forecastDiv;                
             }
         }
     }

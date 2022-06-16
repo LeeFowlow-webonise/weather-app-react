@@ -22,10 +22,14 @@ const useWidget = (cityId) => {
     };
 
     let widgetFunction = () => {
-        var script = React.createElement('script');
+        var script = document.createElement('script');
         script.async = true;
         script.charset = "utf-8";
         script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+        // var script = React.createElement(
+        //     'script',
+        //     {async: 'true', charset: 'utf-8',
+        //     src: "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js"});
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(script, s);
     };
@@ -39,20 +43,21 @@ const useWidget = (cityId) => {
         'script',
         null,
         `window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
-        window.myWidgetParam.push(${widgetParamObj});(${widgetFunction})
+        window.myWidgetParam.push(id: 11, cityid: '${cityId}', appid: '${process.env.REACT_APP_API_KEY}',
+            units: 'metric', containerid: 'useWidget-11'});(${widgetFunction()})
         )();</script>`
 
     );
 
     return(
-        // console.log([
-        //     {'wPO': widgetParamObj},
-        //     {'main': mainScript},
-        //     {'call': callScript},
-        //     {'func': widgetFunction}
-        // ])
-        mainScript,
-        callScript
+        console.log([
+            {'wPO': widgetParamObj},//correct
+            {'main': mainScript},//correct
+            {'call': callScript},//widgetParamObj getting read as object Object
+            {'func': widgetFunction}
+        ])
+        // mainScript,
+        // callScript
     )
 }
 
