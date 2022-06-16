@@ -91,3 +91,4 @@ npm install and npm audit return 6 high severity vulnerabilities all linked to r
     interacting with create-react-app.
 
 ##JUNE 16th
+Routers are set up now, but they are not passing data to the Components. This is where I'll start today.
