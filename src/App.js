@@ -7,14 +7,26 @@ import {
   Route,
   Link
 } from "react-router-dom";
-// import Home from './components/weather';
-// import Hourly from './components/forecast';
 import Weather from './components/weather';
 import Hourly from './components/forecast';
 import Test from './components/test';
 let weatherData = [];
 
 const displayWidget = () => {
+
+//   if (window.myWidgetParam !== 'undefined'){
+//     window.myWidgetParam = [];  
+//     window.myWidgetParam.push({id: 11,cityid: '553429',appid: process.env.REACT_APP_API_KEY,units: 'metric',containerid: 'useWidget-11',  });  
+    
+//     (function() {
+//         var script = document.createElement('script');
+//         script.async = true;
+//         script.charset = "utf-8";
+//         script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+//         var s = document.getElementsByTagName('script')[0];
+//         s.parentNode.insertBefore(script, s);
+//     })();
+// }
   let widgetDiv = document.getElementById('useWidget-11');
   
   if (widgetDiv.style.display == 'none'){
@@ -25,7 +37,7 @@ const displayWidget = () => {
 const hideWidget = () => {
   let widgetDiv = document.getElementById('useWidget-11');
   
-  if (widgetDiv.style.display == 'inline'){
+  if (widgetDiv.style.display === 'inline'){
     widgetDiv.style.display = 'none'
   }
 }
@@ -67,7 +79,6 @@ function App() {
             weatherData.push(result);
             }
           setData(weatherData);
-          console.log(weatherData);
           })
         ])
       }
@@ -101,18 +112,6 @@ function App() {
     ): (
       <div></div>
     )
-
-
-    // <div className="App">
-    //   {(typeof data[1] !== 'undefined') ? (
-    //     <div><Weather weatherData={data}/>
-    //     <Forecast weatherData={data}/></div>
-    //   ): (
-    //     <div>
-    //    </div>
-    //   )}
-    // </div>
-  // );
 }
 
 export default App;
