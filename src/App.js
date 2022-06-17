@@ -7,13 +7,20 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import background from './hooks/useBackground';
 import Weather from './components/weather';
 import Hourly from './components/forecast';
 import Test from './components/test';
 let weatherData = [];
 
-const displayWidget = () => {
+const changeBackground = async (weatherData) => {
+  let image = await background(weatherData);
+  console.log('url(' + image + ')');
+  // document.body.style.backgroundImage = 'url(' + image + ');';
+  document.body.style.backgroundImage = "url('assets/images/backgrounds/clear sky.jpg')";//eslint-disable-line
+}
 
+const displayWidget = () => {
 //   if (window.myWidgetParam !== 'undefined'){
 //     window.myWidgetParam = [];  
 //     window.myWidgetParam.push({id: 11,cityid: '553429',appid: process.env.REACT_APP_API_KEY,units: 'metric',containerid: 'useWidget-11',  });  
@@ -30,7 +37,7 @@ const displayWidget = () => {
 // }
   let widgetDiv = document.getElementById('useWidget-11');
   
-  if (widgetDiv.style.display == 'none'){
+  if (widgetDiv.style.display === 'none'){
     widgetDiv.style.display = 'inline'
   }
 }
@@ -80,6 +87,7 @@ function App() {
             weatherData.push(result);
             }
           setData(weatherData);
+          changeBackground(weatherData);          
           })
         ])
       }

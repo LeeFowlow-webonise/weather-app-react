@@ -120,3 +120,5 @@ and get it to render. Going to to have to come back to it for another attempt la
 get it to work may be to use an onClick with the test(*eventually "weekly") button, and have the scripts
 load when they get generated. For the time being, the test route displays the weekly forecast for London,
 England.
+
+Have decided to set up a background which changes based on the current weather at the user's location.
