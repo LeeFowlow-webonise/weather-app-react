@@ -11,6 +11,37 @@ const converter = (degrees) => {
 const useForecast = (weatherData) => {
     let i;
     let forecastDiv = [];
+    let newDateArray = [];
+    let newTempArray = [];
+    let newCondArray = [];
+    let newWindArray = [];
+    let newDirectArray = [];
+
+    let dateLabel = React.createElement(
+        'p',
+        {className: 'foreday', key: 'dateLabel'},
+        'Date/Time'
+    )
+    let tempLabel = React.createElement(
+        'p',
+        {className: 'foreday', key: 'tempLabel'},
+        'Temp'
+    )
+    let condLabel = React.createElement(
+        'p',
+        {className: 'foreday', key: 'condLabel'},
+        'Condition'
+    )
+    let windLabel = React.createElement(
+        'p',
+        {className: 'foreday', key: 'windLabel'},
+        'Wind'
+    )
+    let directLabel = React.createElement(
+        'p',
+        {className: 'foreday', key: 'directLabel'},
+        'Direction'
+    )
 
     for (i = 0; i < weatherData.length; i++){
         if (i % 4 === 0){
@@ -18,44 +49,81 @@ const useForecast = (weatherData) => {
             //the new paragraphs to be added to next flex div
             let newDate = React.createElement(
                 'p', 
-                {className: 'foreday', key: 'newDate'},
+                {className: 'foreday', key: 'newDate' + i},
                 new Date(forecastData.dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})
                 );
             let newTemp = React.createElement(
                 'p', 
-                {className: 'foreday', key: 'newTemp'},
+                {className: 'foreday', key: 'newTemp' + i},
                 forecastData.main.temp + '°C'
                 );
             let newCond = React.createElement(
                 'p', 
-                {className: 'foreday', key: 'newCond'},
+                {className: 'foreday', key: 'newCond' + i},
                 forecastData.weather[0].description
                 );
             let newWind = React.createElement(
                 'p', 
-                {className: 'foreday', key: 'newWind'},
+                {className: 'foreday', key: 'newWind' + i},
                 Math.round(10 * forecastData.wind.speed) / 10 + 'km/h'
                 );
             let newDirect = React.createElement(
                 'p', 
-                {className: 'foreday', key: 'newDirect'},
+                {className: 'foreday', key: 'newDirect' + i},
                 converter(forecastData.wind.deg)
                 );        
  
-            
-            let newD = React.createElement(
-                'div', 
-                {className: 'flex', key: 'newD' + i},
-                newDate,
-                newTemp,
-                newCond,
-                newWind,
-                newDirect
-                );
-            forecastDiv.push(newD);
+            newDateArray.push(newDate);
+            newTempArray.push(newTemp);
+            newCondArray.push(newCond);
+            newWindArray.push(newWind);
+            newDirectArray.push(newDirect);
+
+            // let newD = React.createElement(
+            //     'div', 
+            //     {className: 'flex', key: 'newD' + i},
+            //     newDate,
+            //     newTemp,
+            //     newCond,
+            //     newWind,
+            //     newDirect
+            //     );
+            // forecastDiv.push(newD);
 
             //currently set to trigger before i passes the last divisible by 4 element index number
             if (i >= weatherData.length - 4){
+                let dateDiv = React.createElement(
+                    'div',
+                    {className: 'column', key: 'dateDiv' + i},
+                    dateLabel,
+                    newDateArray.slice()
+                );
+                let tempDiv = React.createElement(
+                    'div',
+                    {className: 'column', key: 'tempDiv' + i},
+                    tempLabel,
+                    newTempArray.slice()
+                );
+                let condDiv = React.createElement(
+                    'div',
+                    {className: 'column', key: 'condDiv' + i},
+                    condLabel,
+                    newCondArray.slice()
+                );
+                let windDiv = React.createElement(
+                    'div',
+                    {className: 'column', key: 'windDiv' + i},
+                    windLabel,
+                    newWindArray.slice()
+                );
+                let directDiv = React.createElement(
+                    'div',
+                    {className: 'column', key: 'directDiv' + i},
+                    directLabel,
+                    newDirectArray.slice()
+                );
+                
+                forecastDiv.push(dateDiv, tempDiv, condDiv, windDiv, directDiv);
                 return forecastDiv;                
             }
         }

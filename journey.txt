@@ -107,3 +107,10 @@ I had left a snippet of the copied URL uncommented at the bottom of useWidget, c
 Wasn't able to get a script to dynamically render in the html. So for the time being, it is set so
 that the div it appears in gets toggled as display none or inline, depending on the timing. This
 is temporary.
+
+##JUNE 17th
+I've decided to start today by fixing up the CSS for the app some. Aligning the data in the forecast
+route, and making the entire page more visually appealing will be first on the agenda.
+
+Realized during testing that my workaround the widget isn't effective. It still needs to be passed the
+city variable; once forecastDiv is aligned, that will be my next stop.

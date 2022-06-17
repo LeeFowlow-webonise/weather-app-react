@@ -34,8 +34,8 @@
   border-bottom-width: 13px;
   border-color: black;
   background-color: #01579b;
-  overflow-x: scroll;
   overflow-y: scroll;
+  overflow-x:hidden;
 }
 
 .top {
@@ -115,6 +115,21 @@
   font-family: 'Recursive', sans-serif;
   font-size: 24px;
   font-weight: 600;
+}
+
+.row{
+  justify-content: space-between;
+  padding-left: 35px;
+}
+
+.row:after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.column{
+  justify-content: center;
 }
 
 .App-link {

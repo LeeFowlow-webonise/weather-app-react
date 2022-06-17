@@ -1,3 +1,7 @@
+
+//NOT IMPLEMENTED, and likely to be removed in the future. Was my first attempt at passing
+//scripts dynamically into the component.
+
 import React from 'react';
 
 
