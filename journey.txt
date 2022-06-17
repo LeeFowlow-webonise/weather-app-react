@@ -114,3 +114,9 @@ route, and making the entire page more visually appealing will be first on the a
 
 Realized during testing that my workaround the widget isn't effective. It still needs to be passed the
 city variable; once forecastDiv is aligned, that will be my next stop.
+
+Spent quite a bit of time trying different ways of being able to edit the variables in myWidgetParams,
+and get it to render. Going to to have to come back to it for another attempt later. Most likely way to 
+get it to work may be to use an onClick with the test(*eventually "weekly") button, and have the scripts
+load when they get generated. For the time being, the test route displays the weekly forecast for London,
+England.

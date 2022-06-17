@@ -79,17 +79,6 @@ const useForecast = (weatherData) => {
             newWindArray.push(newWind);
             newDirectArray.push(newDirect);
 
-            // let newD = React.createElement(
-            //     'div', 
-            //     {className: 'flex', key: 'newD' + i},
-            //     newDate,
-            //     newTemp,
-            //     newCond,
-            //     newWind,
-            //     newDirect
-            //     );
-            // forecastDiv.push(newD);
-
             //currently set to trigger before i passes the last divisible by 4 element index number
             if (i >= weatherData.length - 4){
                 let dateDiv = React.createElement(
