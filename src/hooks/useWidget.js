@@ -4,8 +4,8 @@
 
 //import React from 'react';
 
-const useWidget = (cityId) => {
-    return 'this text came from useWidget hook'
+const useWidget = (weatherData) => {
+    let cityId = weatherData.weatherData[0].id;
 
 //     //this if/else came before defining window.myWidgetParam, as provided by openweathermap
 //     //

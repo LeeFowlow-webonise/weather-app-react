@@ -10,44 +10,12 @@ import {
 import background from './hooks/useBackground';
 import Weather from './components/weather';
 import Hourly from './components/forecast';
-import Test from './components/test';
+import Weekly from './components/weekly';
 let weatherData = [];
 
-const changeBackground = async (weatherData) => {
-  let image = await background(weatherData);
-  console.log('url(' + image + ')');
-  // document.body.style.backgroundImage = 'url(' + image + ');';
+const changeBackground = (weatherData) => {
+  let image = background(weatherData);
   document.body.style.backgroundImage = "url('" + image + "')";//eslint-disable-line
-}
-
-const displayWidget = () => {
-//   if (window.myWidgetParam !== 'undefined'){
-//     window.myWidgetParam = [];  
-//     window.myWidgetParam.push({id: 11,cityid: '553429',appid: process.env.REACT_APP_API_KEY,units: 'metric',containerid: 'useWidget-11',  });  
-    
-//     (function() {
-//         var script = document.createElement('script');
-//         script.async = true;
-//         script.charset = "utf-8";
-//         script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-//         var s = document.getElementsByTagName('script')[0];
-//         s.parentNode.insertBefore(script, s);
-//         console.log(s.parentNode);
-//     })();
-// }
-  let widgetDiv = document.getElementById('useWidget-11');
-  
-  if (widgetDiv.style.display === 'none'){
-    widgetDiv.style.display = 'inline'
-  }
-}
-
-const hideWidget = () => {
-  let widgetDiv = document.getElementById('useWidget-11');
-  
-  if (widgetDiv.style.display === 'inline'){
-    widgetDiv.style.display = 'none'
-  }
 }
 
 function App() {
@@ -68,6 +36,7 @@ function App() {
       //searches weather information for current geolocation
       await Promise.all([
         await fetch(`${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
+        // ${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_API_KEY}
           .then(res => res.json())
           .then(result => {
             weatherData = [];
@@ -85,11 +54,20 @@ function App() {
               return
             } else {
             weatherData.push(result);
+            }     
+          }),
+        await fetch(`${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${long}&units=metric&appid=${process.env.REACT_APP_API_KEY}`)
+          .then(res => res.json())
+          .then(result => {
+            if (result.cod === '400'){
+              return
+            } else {
+              weatherData.push(result);
             }
           setData(weatherData);
           console.log(weatherData);
-          changeBackground(weatherData);          
-          })
+          changeBackground(weatherData);
+          }),
         ])
       }
       fetchData();
@@ -97,21 +75,20 @@ function App() {
 
     return data ? (
         <Router>
-          {(typeof data[1] !== 'undefined') ? (
+          {(typeof data[2] !== 'undefined') ? (
             <div>
-              <h2>Testing out Routers!</h2>
               <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <ul className="navbar-nav mr-auto">
-                <li><Link to={'/'} className="nav-link" onClick={hideWidget}> Current Weather </Link></li>
-                <li><Link to={'/forecast/hourly'} className="nav-link" onClick={hideWidget}>Hourly Forecast</Link></li>
-                <li><Link to={'/test'} className="nav-link" onClick={displayWidget}>Test</Link></li>
+                <li><Link to={'/'} className="nav-link"> Current Weather </Link></li>
+                <li><Link to={'/forecast/hourly'} className="nav-link">Hourly Forecast</Link></li>
+                <li><Link to={'/forecast/weekly'} className="nav-link">Weekly Forecast</Link></li>
               </ul>
               </nav>
               <hr />
               <Routes>
                   <Route exact path='/' element={<Weather weatherData={data}/>}/>
                   <Route path='/forecast/hourly' element={<Hourly weatherData={data}/>}/>
-                  <Route path='/test' element={<Test weatherData={data}/>} />
+                  <Route path='/forecast/weekly' element={<Weekly weatherData={data}/>} />
               </Routes>
             </div>
             ): (

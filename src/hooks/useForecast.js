@@ -50,7 +50,7 @@ const useForecast = (weatherData) => {
             let newDate = React.createElement(
                 'p', 
                 {className: 'foreday', key: 'newDate' + i},
-                new Date(forecastData.dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})
+                new Date(forecastData.dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', hour: 'numeric', minute: '2-digit'})
                 );
             let newTemp = React.createElement(
                 'p', 

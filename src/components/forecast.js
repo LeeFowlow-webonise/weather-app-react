@@ -3,7 +3,7 @@ import '../App.css';
 import useForecast from '../hooks/useForecast';
 
 const Forecast = (weatherData) => {
-    const newData = useForecast(weatherData.weatherData[1].list);
+    const hourlyDiv = useForecast(weatherData.weatherData[1].list);
 
     return (
         <div className='container'>
@@ -12,7 +12,7 @@ const Forecast = (weatherData) => {
                     <div className='header'>Forecast</div>
                 </div>
                 <div className='row'>
-                    {newData}
+                    {hourlyDiv}
                 </div>
             </div>
         </div>

@@ -122,3 +122,20 @@ load when they get generated. For the time being, the test route displays the we
 England.
 
 Have decided to set up a background which changes based on the current weather at the user's location.
+
+##JUNE 20th
+First thing to do today is to get the background image of the app to change depending on the current
+weather for the user. The issue that I ran into before was that when I removed all the blank spaces from
+openweathermap's description, it returned a string, and not a variable that I could search the images
+object for.
+- After trying a couple fixes, it turns out that searching the object via data[x] instead of data.x
+    was all that was required.
+
+Over the weekend, I found that openweathermap has another free tier call (onecall), which I had been
+previously unaware of. So instead of continuing to try to get the widget to work, my next step will be to
+use that call and extract the weekly forecast myself; then display it in the same method as my previous
+two weather components.
+
+Weekly forecast component is set up and working now. My next two tasks are:
+- change the hourly forecast to match it's name, as opposed to 12-hour intervals. (Use onecall)
+- put work into making the app look more visually appealing and easier to consume.

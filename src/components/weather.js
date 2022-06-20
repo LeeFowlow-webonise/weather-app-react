@@ -2,7 +2,6 @@ import React from 'react';
 import '../App.css';
 import { Button } from 'semantic-ui-react';
 import moment from 'moment';
-import background from '../hooks/useBackground'
 
 const refresh = () => {
     window.location.reload();
