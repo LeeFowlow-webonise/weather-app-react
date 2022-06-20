@@ -17,7 +17,7 @@ const changeBackground = async (weatherData) => {
   let image = await background(weatherData);
   console.log('url(' + image + ')');
   // document.body.style.backgroundImage = 'url(' + image + ');';
-  document.body.style.backgroundImage = "url('assets/images/backgrounds/clear sky.jpg')";//eslint-disable-line
+  document.body.style.backgroundImage = "url('" + image + "')";//eslint-disable-line
 }
 
 const displayWidget = () => {
@@ -87,6 +87,7 @@ function App() {
             weatherData.push(result);
             }
           setData(weatherData);
+          console.log(weatherData);
           changeBackground(weatherData);          
           })
         ])
