@@ -8,6 +8,8 @@ const useBackground = (weatherData) => {
         fewclouds: 'assets/images/backgrounds/few\ clouds.jpg',//eslint-disable-line
         lightintensityshowerrain: 'assets/images/backgrounds/light\ intensity\ shower\ rain.jpg',//eslint-disable-line
         mist: 'assets/images/backgrounds/mist.jpg',//eslint-disable-line        
+        scatteredclouds: 'assets/images/backgrounds/scattered\ clouds.jpg',//eslint-disable-line        
+        heavyintensityrain: 'assets/images/backgrounds/heavy\ intensity\ rain.jpg',//eslint-disable-line        
     }
 
     let currentWeather = (weatherData[0].weather[0].description).replace(/\s+/g, '');

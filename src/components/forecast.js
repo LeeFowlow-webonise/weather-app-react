@@ -9,7 +9,7 @@ const Forecast = (weatherData) => {
         <div className='container'>
             <div className='forecast' id='forecast'>
                 <div className='top'>
-                    <div className='header'>Forecast</div>
+                    <div className='header'>24-hour Forecast</div>
                 </div>
                 <div className='row'>
                     {hourlyDiv}

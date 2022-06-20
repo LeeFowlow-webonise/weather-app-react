@@ -80,7 +80,7 @@ function App() {
               <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <ul className="navbar-nav mr-auto">
                 <li><Link to={'/'} className="nav-link"> Current Weather </Link></li>
-                <li><Link to={'/forecast/hourly'} className="nav-link">Hourly Forecast</Link></li>
+                <li><Link to={'/forecast/hourly'} className="nav-link">24-hour Forecast</Link></li>
                 <li><Link to={'/forecast/weekly'} className="nav-link">Weekly Forecast</Link></li>
               </ul>
               </nav>
