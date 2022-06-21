@@ -77,7 +77,7 @@ function App() {
         <Router>
           {(typeof data[2] !== 'undefined') ? (
             <div>
-              <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
               <ul className="navbar-nav mr-auto">
                 <li><Link to={'/'} className="nav-link"> Current Weather </Link></li>
                 <li><Link to={'/forecast/hourly'} className="nav-link">24-hour Forecast</Link></li>

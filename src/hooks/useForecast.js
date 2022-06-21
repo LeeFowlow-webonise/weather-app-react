@@ -19,27 +19,27 @@ const useForecast = (weatherData) => {
 
     let dateLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'dateLabel'},
+        {className: 'foreday', key: 'dateLabel', style: {color: 'darkgray'}},
         'Date/Time'
     )
     let tempLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'tempLabel'},
+        {className: 'foreday', key: 'tempLabel', style: {color: 'darkgray'}},
         'Temp'
     )
     let condLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'condLabel'},
+        {className: 'foreday', key: 'condLabel', style: {color: 'darkgray'}},
         'Condition'
     )
     let windLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'windLabel'},
+        {className: 'foreday', key: 'windLabel', style: {color: 'darkgray'}},
         'Wind'
     )
     let directLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'directLabel'},
+        {className: 'foreday', key: 'directLabel', style: {color: 'darkgray'}},
         'Direction'
     )
 
@@ -48,7 +48,7 @@ const useForecast = (weatherData) => {
         //the new paragraphs to be added to next flex div
         let newDate = React.createElement(
             'p', 
-            {className: 'foreday', key: 'newDate' + i},
+            {className: 'foreday', key: 'newDate' + i, style: {color: 'darkgray'}},
             new Date(forecastData.dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', hour: 'numeric', minute: '2-digit'})
             );
         let newTemp = React.createElement(

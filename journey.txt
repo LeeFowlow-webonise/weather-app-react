@@ -139,3 +139,9 @@ two weather components.
 Weekly forecast component is set up and working now. My next two tasks are:
 - change the hourly forecast to match it's name, as opposed to 12-hour intervals. (Use onecall)
 - put work into making the app look more visually appealing and easier to consume.
+
+##JUNE 21st
+Yesterday, I changed the hourly forecast to display in 3-hour intervals over the course of
+24 hours, and will leave it at that.
+
+This morning, I will start trying to make the app more visually appealing.

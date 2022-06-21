@@ -132,6 +132,12 @@
   justify-content: center;
 }
 
+.nav-link{
+  font-size: medium !important;
+  font-weight: bolder !important;
+  color: black !important;
+}
+
 .App-link {
   color: #61dafb;
 }

@@ -18,27 +18,27 @@ const useDailyForecast = (weatherData) => {
 
     let dayLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'dateLabel'},
+        {className: 'foreday', key: 'dateLabel', style: {color: 'darkgray'}},
         'Day/Time'
     )
     let lowTempLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'lowTempLabel'},
+        {className: 'foreday', key: 'lowTempLabel', style: {color: 'darkgray'}},
         'Low'
     )
     let highTempLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'highTempLabel'},
+        {className: 'foreday', key: 'highTempLabel', style: {color: 'darkgray'}},
         'highTemp'
     )
     let condLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'condLabel'},
+        {className: 'foreday', key: 'condLabel', style: {color: 'darkgray'}},
         'Condition'
     )
     let windLabel = React.createElement(
         'p',
-        {className: 'foreday', key: 'windLabel'},
+        {className: 'foreday', key: 'windLabel', style: {color: 'darkgray'}},
         'Wind'
     )
 
@@ -47,7 +47,7 @@ const useDailyForecast = (weatherData) => {
         //the new paragraphs to be added to next flex div
         let newDay = React.createElement(
             'p', 
-            {className: 'foreday', key: 'newDay' + i},
+            {className: 'foreday', key: 'newDay' + i, style: {color: 'darkgray'}},
             new Date(forecastData.dt * 1000).toLocaleString('en-IN', {weekday: 'long'})
             );
         let newLowTemp = React.createElement(
