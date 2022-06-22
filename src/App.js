@@ -89,7 +89,7 @@ function App() {
                 <li><Link to={'/'} className="nav-link"> Current Weather </Link></li>
                 <li><Link to={'/forecast/hourly'} className="nav-link">24-hour Forecast</Link></li>
                 <li><Link to={'/forecast/weekly'} className="nav-link">Weekly Forecast</Link></li>
-                <li><Link to={'/city'} className="nav-link">City Search</Link></li>
+                <li><Link to={'/city'} id='tempDeprecate' className="nav-link">City Search</Link></li>
               </ul>
               </nav>
               <hr />
