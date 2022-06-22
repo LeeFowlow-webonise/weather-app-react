@@ -8,14 +8,21 @@ import {
   Link
 } from "react-router-dom";
 import background from './hooks/useBackground';
+import fontAdjust from './hooks/useFontAdjust'
 import Weather from './components/weather';
 import Hourly from './components/forecast';
 import Weekly from './components/weekly';
+import City from './components/city';
 let weatherData = [];
 
 const changeBackground = (weatherData) => {
-  let image = background(weatherData);
-  document.body.style.backgroundImage = "url('" + image + "')";//eslint-disable-line
+  let image = [];
+  image = background(weatherData);
+
+  //meant to change the text color depending on the background image. Not currently functioning.
+  // fontAdjust(image[0]);
+
+  document.body.style.backgroundImage = "url('" + image[1] + "')";//eslint-disable-line
 }
 
 function App() {
@@ -82,6 +89,7 @@ function App() {
                 <li><Link to={'/'} className="nav-link"> Current Weather </Link></li>
                 <li><Link to={'/forecast/hourly'} className="nav-link">24-hour Forecast</Link></li>
                 <li><Link to={'/forecast/weekly'} className="nav-link">Weekly Forecast</Link></li>
+                <li><Link to={'/city'} className="nav-link">City Search</Link></li>
               </ul>
               </nav>
               <hr />
@@ -89,6 +97,7 @@ function App() {
                   <Route exact path='/' element={<Weather weatherData={data}/>}/>
                   <Route path='/forecast/hourly' element={<Hourly weatherData={data}/>}/>
                   <Route path='/forecast/weekly' element={<Weekly weatherData={data}/>} />
+                  <Route path='/city' element={<City/>} />
               </Routes>
             </div>
             ): (

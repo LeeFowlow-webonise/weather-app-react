@@ -145,3 +145,18 @@ Yesterday, I changed the hourly forecast to display in 3-hour intervals over the
 24 hours, and will leave it at that.
 
 This morning, I will start trying to make the app more visually appealing.
+
+Spent some time getting the background to render properly, and straightening the weather displays in
+24-hour and weekly forecast.
+
+Looked into option for a city search component, which would allow user to input any city in the world
+and get returned weather information. There is an API call which takes the city name as an input, so
+that will be the basis for that component.
+
+Have started with a display div that is very similar to the currentWeather display on the home page.
+First setup is with a search box and submit button, then on click, the weather div should be displayed.
+
+##June 22nd
+
+With submit section set up in city search component, the next step will be to re-direct that to a div
+built the same as the current weather div on the homepage.
