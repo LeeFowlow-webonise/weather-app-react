@@ -8,7 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import background from './hooks/useBackground';
-import fontAdjust from './hooks/useFontAdjust'
+// import fontAdjust from './hooks/useFontAdjust'
 import Weather from './components/weather';
 import Hourly from './components/forecast';
 import Weekly from './components/weekly';
@@ -43,7 +43,6 @@ function App() {
       //searches weather information for current geolocation
       await Promise.all([
         await fetch(`${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
-        // ${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_API_KEY}
           .then(res => res.json())
           .then(result => {
             weatherData = [];
@@ -89,7 +88,8 @@ function App() {
                 <li><Link to={'/'} className="nav-link"> Current Weather </Link></li>
                 <li><Link to={'/forecast/hourly'} className="nav-link">24-hour Forecast</Link></li>
                 <li><Link to={'/forecast/weekly'} className="nav-link">Weekly Forecast</Link></li>
-                <li><Link to={'/city'} id='tempDeprecate' className="nav-link">City Search</Link></li>
+                <li><input id='cityName' className='nav-link' type='text' placeholder='Look up the weather in...'></input></li>
+                <li><Link to={'/city'} id='tempDeprecate' className="nav-link">Search</Link></li>
               </ul>
               </nav>
               <hr />

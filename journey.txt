@@ -160,3 +160,8 @@ First setup is with a search box and submit button, then on click, the weather d
 
 With submit section set up in city search component, the next step will be to re-direct that to a div
 built the same as the current weather div on the homepage.
+
+Spent quite a bit of time learning about the proper way to use hooks. My implementation of searching for
+a city will not work, because I am trying to call the hook from an onClick event. I've decided to
+alter it so that instead, the onClick loads another component and passes the information from the cityName
+box.
