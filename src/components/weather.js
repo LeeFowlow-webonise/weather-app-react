@@ -5,7 +5,7 @@ import moment from 'moment';
 
 const refresh = () => {
     window.location.reload();
-  }
+}
 
 const CurrentWeather = (weatherData) => {
     return (
@@ -13,7 +13,7 @@ const CurrentWeather = (weatherData) => {
             <div className='main'>
                 <div className="top">
                     <p className="header">{weatherData.weatherData[0].name} - <span>current weather</span></p>
-                    <Button className="button" inverted color='blue' circular icon='refresh' onClick={refresh} />
+                    <Button className="button" inverted color='blue' circular icon='refresh' onClick={refresh}/>
                 </div>
                 <div className='flex'>
                     <p className='day'>{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>

@@ -13,7 +13,7 @@ const Test = (weatherData) => {
         <div className='container'>
             <div className='forecast' id='forecast'>
                 <div className='top'>
-                    <div className='header'>Weekly Forecast</div>
+                    <div className='header'>{weatherData.weatherData[0].name} - <span>Weekly Forecast</span></div>
                 </div>
                 <div className='row'>
                     {dailyDiv}

@@ -9,7 +9,7 @@ const Forecast = (weatherData) => {
         <div className='container'>
             <div className='forecast' id='forecast'>
                 <div className='top'>
-                    <div className='header'>24-hour Forecast</div>
+                    <div className='header'>{weatherData.weatherData[0].name} - <span>24-Hour Forecast</span></div>
                 </div>
                 <div className='row'>
                     {hourlyDiv}

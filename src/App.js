@@ -25,6 +25,17 @@ const changeBackground = (weatherData) => {
   document.body.style.backgroundImage = "url('" + image[1] + "')";//eslint-disable-line
 }
 
+const returnSearch = () => {
+  document.getElementById('cityName').style.display = 'inline';
+  document.getElementById('cityName').value = '';
+  document.getElementById('cityNameSearch').style.display = 'inline';
+}
+
+const removeSearch = () => {
+  document.getElementById('cityName').style.display = 'none';
+  document.getElementById('cityNameSearch').style.display = 'none';
+}
+
 function App() {
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
@@ -85,11 +96,11 @@ function App() {
             <div>
               <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
               <ul className="navbar-nav mr-auto">
-                <li><Link to={'/'} className="nav-link"> Current Weather </Link></li>
-                <li><Link to={'/forecast/hourly'} className="nav-link">24-hour Forecast</Link></li>
-                <li><Link to={'/forecast/weekly'} className="nav-link">Weekly Forecast</Link></li>
+                <li><Link to={'/'} className="nav-link" onClick={returnSearch}> Current Weather </Link></li>
+                <li><Link to={'/forecast/hourly'} className="nav-link" onClick={returnSearch}>24-hour Forecast</Link></li>
+                <li><Link to={'/forecast/weekly'} className="nav-link" onClick={returnSearch}>Weekly Forecast</Link></li>
                 <li><input id='cityName' className='nav-link' type='text' placeholder='Look up the weather in...'></input></li>
-                <li><Link to={'/city'} id='tempDeprecate' className="nav-link">Search</Link></li>
+                <li><Link to={'/city'} id='cityNameSearch' className="nav-link" onClick={removeSearch}>Search</Link></li>
               </ul>
               </nav>
               <hr />
