@@ -2,7 +2,7 @@ let weatherData = [];
 
 const citySearch = async(cityName) => {
 
-
+    if(cityName != null){
     await fetch(`${process.env.REACT_APP_API_URL}/weather?q=${cityName}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(result => {
@@ -19,6 +19,7 @@ const citySearch = async(cityName) => {
             }
         })
         return weatherData;
+    }
 }
 
 export default citySearch

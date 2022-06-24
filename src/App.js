@@ -8,11 +8,12 @@ import {
   Link
 } from "react-router-dom";
 import background from './util/setBackground';
-// import fontAdjust from './hooks/useFontAdjust'
 import Weather from './components/weather';
 import Hourly from './components/forecast';
 import Weekly from './components/weekly';
 import City from './components/city';
+import CityForm from './components/citySearch';
+import CurrentWeather from './components/weathertest';
 let weatherData = [];
 
 const changeBackground = (weatherData) => {
@@ -82,7 +83,6 @@ function App() {
               weatherData.push(result);
             }
           setData(weatherData);
-          console.log(weatherData);
           changeBackground(weatherData);
           }),
         ])
@@ -108,7 +108,7 @@ function App() {
                   <Route exact path='/' element={<Weather weatherData={data}/>}/>
                   <Route path='/forecast/hourly' element={<Hourly weatherData={data}/>}/>
                   <Route path='/forecast/weekly' element={<Weekly weatherData={data}/>} />
-                  <Route path='/city' element={<City/>} />
+                  <Route path='/city' element={<CityForm/>} />
               </Routes>
             </div>
             ): (
