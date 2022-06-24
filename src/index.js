@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals';
 /*had several issues getting this import not to break webpack compiler.
 Currently working, but unsure if rendering all css properly*/
 import 'semantic-ui-css/semantic.min.css';
-import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

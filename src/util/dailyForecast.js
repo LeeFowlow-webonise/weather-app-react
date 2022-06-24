@@ -1,14 +1,8 @@
 import React from 'react';
+import labels from './forecastLabels';
+import windDirection from './windDirection';
 
-const converter = (degrees) => {
-    const directions = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest']
-
-    let degreeCalc = Math.round((degrees / 360) * 8);
-
-    return (directions[degreeCalc]);
-}
-
-const useForecast = (weatherData) => {
+const dailyForecast = (weatherData) => {
     let i;
     let forecastDiv = [];
     let newDateArray = [];
@@ -16,32 +10,6 @@ const useForecast = (weatherData) => {
     let newCondArray = [];
     let newWindArray = [];
     let newDirectArray = [];
-
-    let dateLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'dateLabel', style: {color: 'darkgray'}},
-        'Date/Time'
-    )
-    let tempLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'tempLabel', style: {color: 'darkgray'}},
-        'Temp'
-    )
-    let condLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'condLabel', style: {color: 'darkgray'}},
-        'Condition'
-    )
-    let windLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'windLabel', style: {color: 'darkgray'}},
-        'Wind'
-    )
-    let directLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'directLabel', style: {color: 'darkgray'}},
-        'Direction'
-    )
 
     for (i = 0; i < weatherData.length; i++){
         let forecastData = weatherData[i];
@@ -69,7 +37,7 @@ const useForecast = (weatherData) => {
         let newDirect = React.createElement(
             'p', 
             {className: 'foreday', key: 'newDirect' + i},
-            converter(forecastData.wind.deg)
+            windDirection(forecastData.wind.deg)
             );        
 
         newDateArray.push(newDate);
@@ -83,31 +51,31 @@ const useForecast = (weatherData) => {
             let dateDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'dateDiv' + i},
-                dateLabel,
+                labels.dateLabel,
                 newDateArray.slice()
             );
             let tempDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'tempDiv' + i},
-                tempLabel,
+                labels.tempLabel,
                 newTempArray.slice()
             );
             let condDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'condDiv' + i},
-                condLabel,
+                labels.condLabel,
                 newCondArray.slice()
             );
             let windDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'windDiv' + i},
-                windLabel,
+                labels.windLabel,
                 newWindArray.slice()
             );
             let directDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'directDiv' + i},
-                directLabel,
+                labels.directLabel,
                 newDirectArray.slice()
             );
             
@@ -118,4 +86,4 @@ const useForecast = (weatherData) => {
     }
 }
 
-export default useForecast;
+export default dailyForecast;

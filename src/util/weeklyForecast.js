@@ -1,46 +1,14 @@
-
-//WHEN FINISHED THIS HOOK WILL BE VERY SIMILAR TO THE useForecast HOOK.
-//SO MUCH SO, THAT I MAY MAKE A MEDIARY HOOK TO PARSE THE DATA, AND THEN COMBINE
-//  THESE INTO A SINGLE FUNCTION.
-
 import React from 'react';
-import moment from 'moment';
+import labels from './forecastLabels';
 
-//this will be the basis for displaying forecasts for specific days three days ahead
-const useDailyForecast = (weatherData) => {
+const weeklyForecast = (weatherData) => {
     let i;
-    let dailyDiv = [];
+    let forecastDiv = [];
     let newDayArray = [];
     let newLowTempArray = [];
     let newHighTempArray = [];
     let newCondArray = [];
     let newWindArray = [];
-
-    let dayLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'dateLabel', style: {color: 'darkgray'}},
-        'Day/Time'
-    )
-    let lowTempLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'lowTempLabel', style: {color: 'darkgray'}},
-        'Low'
-    )
-    let highTempLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'highTempLabel', style: {color: 'darkgray'}},
-        'highTemp'
-    )
-    let condLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'condLabel', style: {color: 'darkgray'}},
-        'Condition'
-    )
-    let windLabel = React.createElement(
-        'p',
-        {className: 'foreday', key: 'windLabel', style: {color: 'darkgray'}},
-        'Wind'
-    )
 
     for(i = 0; i < weatherData.length; i++){
         let forecastData = weatherData[i];
@@ -82,41 +50,39 @@ const useDailyForecast = (weatherData) => {
             let dayDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'dayDiv' + i},
-                dayLabel,
+                labels.dayLabel,
                 newDayArray.slice()
             );
             let lowTempDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'LowTempDiv' + i},
-                lowTempLabel,
+                labels.lowTempLabel,
                 newLowTempArray.slice()
             );
             let highTempDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'HighTempDiv' + i},
-                highTempLabel,
+                labels.highTempLabel,
                 newHighTempArray.slice()
             );
             let condDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'condDiv' + i},
-                condLabel,
+                labels.condLabel,
                 newCondArray.slice()
             );
             let windDiv = React.createElement(
                 'div',
                 {className: 'column', key: 'windDiv' + i},
-                windLabel,
+                labels.windLabel,
                 newWindArray.slice()
             );
             
-            dailyDiv.push(dayDiv, lowTempDiv, highTempDiv, condDiv, windDiv);
-            return dailyDiv;                
+            forecastDiv.push(dayDiv, lowTempDiv, highTempDiv, condDiv, windDiv);
+            return forecastDiv;                
         }
     }
 
 }
 
-export default useDailyForecast
-
-// new Date(forecastData.dt * 1000).toLocaleString('en-IN', {day: '2-digit', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit'})
+export default weeklyForecast

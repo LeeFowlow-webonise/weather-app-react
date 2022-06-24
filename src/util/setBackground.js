@@ -1,4 +1,4 @@
-const useBackground = (weatherData) => {
+const setBackground = (weatherData) => {
     const images = {
         brokenclouds: 'assets/images/backgrounds/broken\ clouds.jpg',//eslint-disable-line
         clearsky: 'assets/images/backgrounds/clear\ sky.jpg',//eslint-disable-line
@@ -23,4 +23,4 @@ const useBackground = (weatherData) => {
     }
 }
 
-export default useBackground
+export default setBackground

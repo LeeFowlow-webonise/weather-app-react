@@ -7,7 +7,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import background from './hooks/useBackground';
+import background from './util/setBackground';
 // import fontAdjust from './hooks/useFontAdjust'
 import Weather from './components/weather';
 import Hourly from './components/forecast';
