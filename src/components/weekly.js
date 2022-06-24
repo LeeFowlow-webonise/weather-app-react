@@ -3,7 +3,7 @@ import '../App.css';
 import weeklyForecast from '../util/weeklyForecast';
 import ForecastElement from './forecastElement';
 
-const Test = (weatherData) => {
+const Weekly = (weatherData) => {
     const dailyDiv = weeklyForecast(weatherData.weatherData[2].daily);
 
     return( 
@@ -13,4 +13,4 @@ const Test = (weatherData) => {
     )
 }
 
-export default Test;
+export default Weekly;
