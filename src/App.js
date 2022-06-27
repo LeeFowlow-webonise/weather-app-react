@@ -59,7 +59,6 @@ function App() {
             } else {
             weatherData.push(result);          
             }
-            console.log(weatherData); 
             setData(weatherData);
             changeBackground(result);             
           })
@@ -69,17 +68,17 @@ function App() {
     }, [lat, long])
 
     return data ? (
-        <Router>
-          {(typeof data[0] !== 'undefined') ? (
+      <Router>
+        {(typeof data[0] !== 'undefined') ? (
             <div>
               <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
-              <ul className="navbar-nav mr-auto">
-                <li><Link to={'/'} className="nav-link" onClick={returnSearch}> Current Weather </Link></li>
-                <li><Link to={'/forecast/hourly'} className="nav-link" onClick={returnSearch}>24-hour Forecast</Link></li>
-                <li><Link to={'/forecast/weekly'} className="nav-link" onClick={returnSearch}>Weekly Forecast</Link></li>
-                <li><input id='cityName' className='nav-link' type='text' placeholder='Look up the weather in...'></input></li>
-                <li><Link to={'/city'} id='cityNameSearch' className="nav-link" onClick={removeSearch}>Search</Link></li>
-              </ul>
+                <ul className="navbar-nav mr-auto">
+                  <li><Link to={'/'} className="nav-link" onClick={returnSearch}> Current Weather </Link></li>
+                  <li><Link to={'/forecast/hourly'} className="nav-link" onClick={returnSearch}>24-hour Forecast</Link></li>
+                  <li><Link to={'/forecast/weekly'} className="nav-link" onClick={returnSearch}>Weekly Forecast</Link></li>
+                  <li><input id='cityName' className='nav-link' type='text' placeholder='Look up the weather in...'></input></li>
+                  <li><Link to={'/city'} id='cityNameSearch' className="nav-link" onClick={removeSearch}>Search</Link></li>
+                </ul>
               </nav>
               <hr />
               <Routes>
@@ -87,13 +86,13 @@ function App() {
                   <Route path='/forecast/hourly' element={<Hourly location={[lat, long]}/>}/>
                   <Route path='/forecast/weekly' element={<Weekly location={[data[0],[lat, long]]}/>} />
                   <Route path='/city' element={<City/>} />
-              </Routes>
-            </div>
+             </Routes>            
+            </div>          
             ): (
               <div>
              </div>
             )}
-          </Router>      
+            </Router>
     ): (
       <div></div>
     )

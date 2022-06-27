@@ -11,7 +11,6 @@ const Hourly = (location) => {
     useEffect(() => {
         weatherFetch(location.location)
             .then(result => {
-                console.log(result);
                 setWeatherData(result);
             })
             .catch(err => {
@@ -21,7 +20,7 @@ const Hourly = (location) => {
 
     return weatherData ? (    
         (typeof weatherData[1] !== 'undefined') ? (  
-        <div className='container'>
+        <div className='container' data-testid='forecastDiv' >
             <ForecastElement forecastDiv={[weatherData[0], dailyForecast(weatherData[1]), 'hourly']}/>
         </div>        
     ): (

@@ -14,7 +14,6 @@ const weatherFetch = async(location) => {
             
           }     
         });
-        console.log(weatherData);
     return(weatherData);
 }
 

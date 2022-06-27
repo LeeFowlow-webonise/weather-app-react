@@ -10,7 +10,6 @@ const refresh = () => {
 }
 
 const CurrentWeather = (weatherData) => {
-    console.log(weatherData);
     let weatherInfo = weatherData.weatherData[0];
 
     return (
