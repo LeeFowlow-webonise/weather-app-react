@@ -49,46 +49,28 @@ function App() {
       });
 
       //searches weather information for current geolocation
-      await Promise.all([
+      await Promise.all(
         await fetch(`${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
           .then(res => res.json())
           .then(result => {
-            weatherData = [];
             //ensures no bad requests get added to the weatherData array
             if (result.cod === '400'){
               return
             } else {
-            weatherData.push(result);
+            weatherData.push(result);          
             }
-          }),
-        await fetch(`${process.env.REACT_APP_API_URL}/forecast?lat=${lat}&lon=${long}&units=metric&appid=${process.env.REACT_APP_API_KEY}`)
-          .then(res => res.json())
-          .then(result => {
-            if (result.cod === '400'){
-              return
-            } else {
-            weatherData.push(result);
-            }     
-          }),
-        await fetch(`${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${long}&units=metric&appid=${process.env.REACT_APP_API_KEY}`)
-          .then(res => res.json())
-          .then(result => {
-            if (result.cod === '400'){
-              return
-            } else {
-              weatherData.push(result);
-            }
-          setData(weatherData);
-          changeBackground(weatherData);
-          }),
-        ])
+            console.log(weatherData); 
+            setData(weatherData);
+            changeBackground(result);             
+          })
+        )
       }
       fetchData();
     }, [lat, long])
 
     return data ? (
         <Router>
-          {(typeof data[2] !== 'undefined') ? (
+          {(typeof data[0] !== 'undefined') ? (
             <div>
               <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
               <ul className="navbar-nav mr-auto">

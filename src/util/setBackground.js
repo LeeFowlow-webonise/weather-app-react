@@ -13,7 +13,7 @@ const setBackground = (weatherData) => {
         smoke: 'assets/images/backgrounds/smoke.jpg',//eslint-disable-line        
         lightintensitydrizzle: 'assets/images/backgrounds/light\ intensity\ drizzle.jpg',//eslint-disable-line        
     }
-    let currentWeather = (weatherData[0].weather[0].description).replace(/\s+/g, '');
+    let currentWeather = (weatherData.weather[0].description).replace(/\s+/g, '');
    
     if (images[currentWeather] != null){
         return ([currentWeather, images[currentWeather]]);

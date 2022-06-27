@@ -9,10 +9,12 @@ const refresh = () => {
     window.location.reload();
 }
 
-const CurrentWeather = (weatherData) => {    
+const CurrentWeather = (weatherData) => {
+    console.log(weatherData);
     let weatherInfo = weatherData.weatherData[0];
 
     return (
+        // console.log(weatherInfo)
         <div className='container'>
             <div className='main'>
                 <div className="top">
