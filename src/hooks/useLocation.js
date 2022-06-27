@@ -8,7 +8,6 @@ const useLocation = () => {
         setLat(position.coords.latitude);
         setLong(position.coords.longitude);
     });
-
     return([lat, long]);
 }
 

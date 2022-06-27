@@ -1,8 +1,17 @@
+let header;
+
+
 const ForecastElement = (forecastDiv) => {
+    if(forecastDiv.forecastDiv[2] === 'hourly'){
+        header = '24-hour Forecast'
+    } else {
+        header = 'Weekly Forecast'
+    }
+
     return(
         <div className='forecast' id='forecast'>
             <div className='top'>
-                <div className='header'>{forecastDiv.forecastDiv[0]} - <span>24-Hour Forecast</span></div>
+                <div className='header'>{forecastDiv.forecastDiv[0]} - <span>{header}</span></div>
             </div>
             <div className='row'>
                 {forecastDiv.forecastDiv[1]}

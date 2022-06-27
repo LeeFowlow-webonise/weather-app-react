@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from "react";
 import {
@@ -42,7 +41,6 @@ function App() {
 
   //loads the function along with the app
   useEffect(() => {
-
       const fetchData = async ()=> {
         //sets current lat and long
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -104,8 +102,8 @@ function App() {
               <hr />
               <Routes>
                   <Route exact path='/' element={<Weather weatherData={data}/>}/>
-                  <Route path='/forecast/hourly' element={<Hourly weatherData={data}/>}/>
-                  <Route path='/forecast/weekly' element={<Weekly weatherData={data}/>} />
+                  <Route path='/forecast/hourly' element={<Hourly location={[lat, long]}/>}/>
+                  <Route path='/forecast/weekly' element={<Weekly location={[data[0],[lat, long]]}/>} />
                   <Route path='/city' element={<City/>} />
               </Routes>
             </div>
