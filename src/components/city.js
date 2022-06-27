@@ -28,7 +28,6 @@ const City = () => {
     }, []);
 
     return( 
-        // console.log(weatherData)
         <div id='newCityDiv' className='main'>
             <div className="top">
                 <p className="header">{cityName} - <span>current weather</span></p>

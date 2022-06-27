@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import weeklyForecast from '../util/weeklyForecast';
-import ForecastElement from './forecastElement';
+import ForecastElement from './elements/forecastElement';
 
 const Weekly = (weatherData) => {
     const dailyDiv = weeklyForecast(weatherData.weatherData[2].daily);

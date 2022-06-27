@@ -9,15 +9,14 @@ const refresh = () => {
     window.location.reload();
 }
 
-const CurrentWeather = (weatherData) => {
-
+const CurrentWeather = (weatherData) => {    
     let weatherInfo = weatherData.weatherData[0];
 
     return (
         <div className='container'>
             <div className='main'>
                 <div className="top">
-                    <p className="header">{weatherData.weatherData[0].name} - <span>current weather</span></p>
+                    <p className="header">{weatherInfo.name} - <span>current weather</span></p>
                     <Button className="button" inverted color='blue' circular icon='refresh' onClick={refresh}/>
                 </div>
                 <CurrentDate weatherData={weatherInfo.weather[0].description}/>

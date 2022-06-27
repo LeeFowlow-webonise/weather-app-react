@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import dailyForecast from '../util/dailyForecast';
-import ForecastElement from './forecastElement';
+import ForecastElement from './elements/forecastElement';
 
 const Forecast = (weatherData) => {
     const hourlyDiv = dailyForecast(weatherData.weatherData[1].list);
