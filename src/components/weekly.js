@@ -11,7 +11,7 @@ const Weekly = (location) => {
         if(process.env.NODE_ENV === 'test'){
             setWeatherData(location.location[1])
         } else {
-            weatherFetch(location.location)
+            weatherFetch(location.location[1])
                 .then(result => {
                     setWeatherData(result);
                 })

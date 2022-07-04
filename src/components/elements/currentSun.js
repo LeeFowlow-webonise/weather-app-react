@@ -1,6 +1,6 @@
 const CurrentSun = (weatherData) => {
     return(
-    <div className='flex'>
+    <div className='flex' data-testid='sunDiv'>
         <p className='sunrise-sunset'>Sunrise: {new Date(weatherData.weatherData[0] * 1000).toLocaleTimeString('en-IN')}</p>
         <p className='sunrise-sunset'>Sunset: {new Date(weatherData.weatherData[1] * 1000).toLocaleTimeString('en-IN')}</p>
     </div>

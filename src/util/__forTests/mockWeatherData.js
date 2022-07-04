@@ -804,4 +804,19 @@ const weatherData = [
     ]
 ]
 
-export default weatherData
+const cityDate = [
+    1656937268,
+    'clear sky'
+]
+
+const temp = [
+    30.94,
+    26
+]
+
+const sunlight = [
+    1656910181, 
+    1656964101
+]
+
+export default { weatherData, cityDate, temp, sunlight }
