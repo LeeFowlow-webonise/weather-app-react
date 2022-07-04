@@ -6,8 +6,8 @@ describe('hourly forecast component', () => {
 
     test('rendered input', () => {
         const {getByTestId} = render(<Hourly weatherData={weatherData}/>);
-        //const forecast = getByTestId('forecastDiv');
-        // expect(forecast).toBeTruthy();
+        const forecast = getByTestId('forecastDiv');
+        expect(forecast).toBeTruthy();
     })
 
 })

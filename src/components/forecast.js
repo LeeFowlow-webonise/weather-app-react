@@ -7,20 +7,19 @@ import ForecastElement from './elements/forecastElement';
 
 const Hourly = (location) => {
     const [weatherData, setWeatherData] = useState([]);
-
-    // if (process.env.NODE_ENV === 'test'){
-    //     setWeatherData(location.weatherData);
-    //     console.log(weatherData);
-    // }
     
     useEffect(() => {
-        weatherFetch(location.location)
-            .then(result => {
-                setWeatherData(result);
-            })
-            .catch(err => {
-                return err
-            })
+        if(process.env.NODE_ENV === 'test'){
+            setWeatherData(location.weatherData)
+        } else {
+            weatherFetch(location.location)
+                .then(result => {
+                    setWeatherData(result);
+                })
+                .catch(err => {
+                    return err
+                })
+        }
     });        
 
     return weatherData ? (    
@@ -29,7 +28,7 @@ const Hourly = (location) => {
                 <ForecastElement forecastDiv={[weatherData[0], dailyForecast(weatherData[1]), 'hourly']}/>
             </div>       
     ): (
-        console.log(weatherData))
+        console.log('weatherData[1] was undefined'))
       ): (
         console.log('fail')
       )
