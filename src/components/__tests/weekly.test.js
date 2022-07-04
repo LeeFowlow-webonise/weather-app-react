@@ -1,15 +1,21 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import weatherData from '../../util/__forTests/mockWeatherData';
 import Weekly from '../weekly';
 
-let forecastDiv = weatherData.forecastData;
+let forecastDiv = weatherData.weeklyData;
 forecastDiv.push('weekly');
 
 describe('weekly forecast component', () => {
 
-    test('renders with input', () => {
+    test('renders and displays appropriate output', () => {
         const {getByTestId} = render(<Weekly location={forecastDiv}/>);
         const forecast = getByTestId('weeklyDiv');
         expect(forecast).toBeTruthy();
+        
+        const display = getByTestId('forecastElement');
+        expect(display).toBeTruthy();
+        
+        screen.getByText(forecastDiv[0].name + ' -');
+        screen.getByText('Weekly Forecast');
     })
 })

@@ -804,6 +804,118 @@ const forecastData = [
     ]
 ]
 
+const weeklyData = [
+    {
+        'name': 'Test City'
+    },
+    [
+        {
+            "dt": 1656948600,
+            "temp": {
+                "min": 12.53,
+                "max": 15.5,
+            },            
+            "wind_speed": 6.45,
+            "weather": [
+                {
+                    "description": "light rain",
+                }
+            ],    
+        },
+        {
+            "dt": 1656948600,
+            "temp": {
+                "min": 12.53,
+                "max": 15.5,
+            },            
+            "wind_speed": 6.45,
+            "weather": [
+                {
+                    "description": "light rain",
+                }
+            ],    
+        },
+        {
+            "dt": 1656948600,
+            "temp": {
+                "min": 12.53,
+                "max": 15.5,
+            },            
+            "wind_speed": 6.45,
+            "weather": [
+                {
+                    "description": "light rain",
+                }
+            ],    
+        },
+        {
+            "dt": 1656948600,
+            "temp": {
+                "min": 12.53,
+                "max": 15.5,
+            },            
+            "wind_speed": 6.45,
+            "weather": [
+                {
+                    "description": "light rain",
+                }
+            ],    
+        },
+        {
+            "dt": 1656948600,
+            "temp": {
+                "min": 12.53,
+                "max": 15.5,
+            },            
+            "wind_speed": 6.45,
+            "weather": [
+                {
+                    "description": "light rain",
+                }
+            ],    
+        },
+        {
+            "dt": 1656948600,
+            "temp": {
+                "min": 12.53,
+                "max": 15.5,
+            },            
+            "wind_speed": 6.45,
+            "weather": [
+                {
+                    "description": "light rain",
+                }
+            ],    
+        },
+        {
+            "dt": 1656948600,
+            "temp": {
+                "min": 12.53,
+                "max": 15.5,
+            },            
+            "wind_speed": 6.45,
+            "weather": [
+                {
+                    "description": "light rain",
+                }
+            ],    
+        },
+        {
+            "dt": 1656948600,
+            "temp": {
+                "min": 12.53,
+                "max": 15.5,
+            },            
+            "wind_speed": 6.45,
+            "weather": [
+                {
+                    "description": "light rain",
+                }
+            ],    
+        }
+    ]
+]        
+
 const weatherData = [
     {
         "weather": [
@@ -843,4 +955,4 @@ const sunlight = [
     1656964101
 ]
 
-export default { forecastData, weatherData, cityDate, temp, sunlight }
+export default { forecastData, weatherData, weeklyData, cityDate, temp, sunlight }

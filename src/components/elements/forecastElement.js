@@ -1,9 +1,6 @@
 let header;
 
 const ForecastElement = (forecastDiv) => {
-
-    console.log(forecastDiv);
-
     if(forecastDiv.forecastDiv[2] === 'hourly'){
         header = '24-hour Forecast'
     } else {

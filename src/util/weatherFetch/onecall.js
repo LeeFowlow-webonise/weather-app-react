@@ -11,7 +11,6 @@ const weatherFetch = async(location) => {
             return
           } else {
             weatherData.push(result.daily);
-            
           }     
         });
     return(weatherData);
