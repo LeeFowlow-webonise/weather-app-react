@@ -1,4 +1,4 @@
-import { render, waitForDomChange } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import weatherData from '../../util/__forTests/mockWeatherData';
 import Hourly from '../forecast';
 

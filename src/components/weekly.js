@@ -8,18 +8,22 @@ const Weekly = (location) => {
     const [weatherData, setWeatherData] = useState([]);
 
     useEffect(() => {
-        weatherFetch(location.location[1])
-            .then(result => {
-                setWeatherData(result);
-            })
-            .catch(err => {
-                return err
-            })
-    });
+        if(process.env.NODE_ENV === 'test'){
+            setWeatherData(location.location[1])
+        } else {
+            weatherFetch(location.location)
+                .then(result => {
+                    setWeatherData(result);
+                })
+                .catch(err => {
+                    return err
+                })
+        }
+    });  
 
     return weatherData ? (    
         (typeof weatherData[0] !== 'undefined') ? (  
-        <div className='container'>
+        <div className='container' data-testid='weeklyDiv'>
             <ForecastElement forecastDiv={[location.location[0].name, weeklyForecast(weatherData[0]), 'weekly']}/>
         </div>        
     ): (
