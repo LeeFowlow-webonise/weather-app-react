@@ -9,7 +9,7 @@ const ForecastElement = (forecastDiv) => {
     }
 
     return(
-        <div className='forecast' id='forecast'>
+        <div className='forecast' id='forecast' data-testid='forecastElement'>
             <div className='top'>
                 <div className='header'>{forecastDiv.forecastDiv[0]} - <span>{header}</span></div>
             </div>

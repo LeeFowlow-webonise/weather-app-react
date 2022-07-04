@@ -1,3 +1,8 @@
+
+//NOT BEING CALLED ANYWHERE. THIS WAS A CLASS COMPONENT THAT I SET UP
+//TO LEARN THE SYNTAX
+
+
 import React from 'react';
 import getCityData from '../util/citySearchTest';
 let weatherData;
