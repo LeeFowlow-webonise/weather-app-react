@@ -4,7 +4,7 @@ import Weather from '../weather';
 
 describe('city forecast component', () => {
 
-    test('rendered input', () => {
+    test('renders with input', () => {
         const {getByTestId} = render(<Weather weatherData={weatherData.weatherData}/>);
         const forecast = getByTestId('weatherDiv');
         expect(forecast).toBeTruthy();

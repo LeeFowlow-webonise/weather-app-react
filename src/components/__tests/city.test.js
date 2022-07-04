@@ -14,7 +14,7 @@ const cityInfo = [
 
 describe('city forecast component', () => {
 
-    test('rendered input', () => {
+    test('renders with input', () => {
         const {getByTestId} = render(<City testValue={cityInfo}/>);
         const forecast = getByTestId('cityDiv');
         expect(forecast).toBeTruthy();
