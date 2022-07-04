@@ -1,4 +1,3 @@
-import { Router } from 'react';
 import { render } from '@testing-library/react';
 import weatherData from '../../util/__forTests/mockWeatherData';
 import City from '../city';

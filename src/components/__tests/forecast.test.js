@@ -5,7 +5,7 @@ import Hourly from '../forecast';
 describe('hourly forecast component', () => {
 
     test('rendered input', () => {
-        const {getByTestId} = render(<Hourly weatherData={weatherData.weatherData}/>);
+        const {getByTestId} = render(<Hourly weatherData={weatherData.forecastData}/>);
         const forecast = getByTestId('forecastDiv');
         expect(forecast).toBeTruthy();
     })

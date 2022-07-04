@@ -1,4 +1,4 @@
-const weatherData = [
+const forecastData = [
     'Test City',
     [
         {
@@ -804,6 +804,30 @@ const weatherData = [
     ]
 ]
 
+const weatherData = [
+    {
+        "weather": [
+            {
+                "description": "overcast clouds",
+            }
+        ],
+        "main": {
+            "temp": 15.57,
+            "humidity": 78
+        },
+        "wind": {
+            "speed": 3.43,
+            "deg": 216,
+        },
+        "dt": 1656939837,
+        "sys": {
+            "sunrise": 1656920189,
+            "sunset": 1656977798
+        },
+        "name": "Test City",
+    }
+] 
+
 const cityDate = [
     1656937268,
     'clear sky'
@@ -819,4 +843,4 @@ const sunlight = [
     1656964101
 ]
 
-export default { weatherData, cityDate, temp, sunlight }
+export default { forecastData, weatherData, cityDate, temp, sunlight }

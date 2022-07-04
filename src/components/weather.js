@@ -11,10 +11,11 @@ const refresh = () => {
 
 const CurrentWeather = (weatherData) => {
     let weatherInfo = weatherData.weatherData[0];
+    console.log(weatherData);
 
     return (
         // console.log(weatherInfo)
-        <div className='container'>
+        <div className='container' data-testid='weatherDiv'>
             <div className='main'>
                 <div className="top">
                     <p className="header">{weatherInfo.name} - <span>current weather</span></p>
