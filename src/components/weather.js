@@ -13,7 +13,6 @@ const CurrentWeather = (weatherData) => {
     let weatherInfo = weatherData.weatherData[0];
 
     return (
-        // console.log(weatherInfo)
         <div className='container' data-testid='weatherDiv'>
             <div className='main'>
                 <div className="top">
