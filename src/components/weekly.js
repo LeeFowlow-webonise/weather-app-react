@@ -23,14 +23,15 @@ const Weekly = (location) => {
 
     return weatherData ? (   
         (typeof weatherData[0] !== 'undefined') ? (  
-        <div className='container' data-testid='weeklyDiv'>
-            <ForecastElement forecastDiv={[location.location[0].name, weeklyForecast(weatherData[0]), 'weekly']}/>
-        </div>        
+            <div className='container' data-testid='weeklyDiv'>
+                <ForecastElement forecastDiv={[location.location[0].name, weeklyForecast(weatherData[0]), 'weekly']}/>
+            </div>        
+        ): (
+        <div></div>
+        )
     ): (
-        console.log(weatherData))
-      ): (
-        console.log('failed to fetch weather data')
-      )
+    console.log('failed to fetch weather data')
+    )
 }
 
 export default Weekly;

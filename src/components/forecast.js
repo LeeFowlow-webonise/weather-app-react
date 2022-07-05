@@ -27,11 +27,12 @@ const Hourly = (location) => {
             <div className='container' data-testid='forecastDiv' >
                 <ForecastElement forecastDiv={[weatherData[0], dailyForecast(weatherData[1]), 'hourly']}/>
             </div>       
+        ): (
+            <div></div>
+        )
     ): (
-        console.log('weatherData[1] was undefined'))
-      ): (
-        console.log('fail')
-      )
+    console.log('fail')
+    )
 }
 
 export default Hourly

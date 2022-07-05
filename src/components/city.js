@@ -21,7 +21,7 @@ const City = (testValue) => {
     useEffect(() => {
         if(process.env.NODE_ENV === 'test'){
             cityName = testValue.testValue.pop();
-            setWeatherData(testValue)
+            setWeatherData(testValue.testValue);
         } else {
             cityName = document.getElementById('cityName').value;
             citySearch(cityName)
@@ -32,7 +32,8 @@ const City = (testValue) => {
         }
     }, []);
 
-    return( 
+    return weatherData ? (
+        (typeof weatherData[0] !== 'undefined') ? ( 
         <div id='newCityDiv' className='main' data-testid='cityDiv'>
             <div className="top">
                 <p className="header">{cityName} - <span>current weather</span></p>
@@ -42,6 +43,11 @@ const City = (testValue) => {
             <CurrentTemp weatherData={[weatherData[2], weatherData[3]]}/>
             <CurrentSun weatherData={[weatherData[4], weatherData[5]]}/>
         </div>
+        ) : (
+            <div></div>
+        )
+    ) : (
+        console.log('failed to fetch weatherData')
     )
 }
 
